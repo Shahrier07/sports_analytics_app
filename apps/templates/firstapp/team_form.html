@@ -1,0 +1,111 @@
+
+<head>
+    <title>Team Formation</title> 
+</head>
+
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Avatars {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+<body>
+{% block content %}
+    <div class="container">
+       {% include "firstapp/navbar.html" %}
+       <div class="row ">
+             
+	    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" method="POST" action="">
+            <fieldset>
+            
+            <div class="card" style="width: 60rem;">
+              <div class="card-header">
+                  <legend>Team Formation Form</legend>
+              </div>
+              <div class="card-body">
+                
+                  {% csrf_token %}
+                  <div class= 'row'>
+                      <div  class='schoolDetails col-6 '>
+                        <div class="card" style="width: ;">
+                              <div class="card-header">
+                                Team Details
+                              </div>
+                              <div class="card-body">
+                                <label>{{form3.teamID.label}} </label>
+                                {{form3.teamID}}
+                                <label>{{form3.teamName.label}} </label>
+                                {{form3.teamName}}
+                                 <label>{{form3.schoolID.label}} </label>
+                                {{form3.schoolID}}
+                                <label>{{form3.sportsType.label}} </label>
+                                {{form3.sportsType}}
+                                <label>{{form3.numOfPlayer.label}} </label>
+                                {{form3.numOfPlayer}}
+                              
+                               
+                              </div>
+                          </div>  
+                      </div> 
+                      <div  class='schoolDetails col-6 '>
+                        <div class="card" style="width: ;">
+                              <div class="card-header">
+                                Team's Player ID
+                              </div>
+                              <div class="card-body">
+                                <label>{{form3.player1.label}} </label>
+                                {{form3.player1}}
+                                <label>{{form3.player2.label}} </label>
+                                {{form3.player2}}
+                                <label>{{form3.player3.label}} </label>
+                                {{form3.player3}}
+                                <label>{{form3.player4.label}} </label>
+                                {{form3.player4}}
+                                <label>{{form3.player5.label}} </label>
+                                {{form3.player5}}
+                                <label>{{form3.player6.label}} </label>
+                                {{form3.player6}}
+                                <label>{{form3.player7.label}} </label>
+                                {{form3.player7}}
+                                <label>{{form3.player8.label}} </label>
+                                {{form3.player8}}
+                                <label>{{form3.player9.label}} </label>
+                                {{form3.player9}}
+                                <label>{{form3.player10.label}} </label>
+                                {{form3.player10}}
+                                <label>{{form3.player11.label}} </label>
+                                {{form3.player11}}
+                             
+                               
+                              </div>
+                              <div class="text-center" style="width: 25rem">
+                                  <button type="submit" id="submit"  class="btn btn-primary">Submit</button>
+                              </div>
+                          </div>  
+                      </div> 
+                  </div> 
+                  
+                 
+              </div>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+</div>
+{% endblock content %}
+<!--Date Picker -->
+
+<script>
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+  </script>
+
+
+
+
+</body>
+</html>
+

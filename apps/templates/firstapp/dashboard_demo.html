@@ -1,0 +1,331 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard Demo{% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+			
+	<div class="content">
+		<div class="panel-header bg-primary-gradient">
+			<div class="page-inner py-5">
+				<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+					<div>
+						<h2 class="text-white pb-2 fw-bold">Dashboard Demo</h2>
+						<h5 class="text-white op-7 mb-2">Sports Analytics Dashboard</h5>
+					</div>
+					<div class="ml-md-auto py-2 py-md-0">
+						<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
+						<a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-inner mt--5">
+			<div class="row mt--2">
+				<div class="col-md-5">
+					<div class="card full-height">
+						<div class="card-body">
+							<div class="card-title">Overall statistics</div>
+							<div class="card-category">Information about match statistics in system</div>
+                            <h5>Match Id: {{match_ref_id}}</h5> 
+
+							<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+								   <div>
+										<h6 class="fw-bold text-uppercase text-success op-4">Type</h6>
+										<h3 class="fw-bold">Run</h3>
+										<h3 class="fw-bold">6's</h3>
+										<h3 class="fw-bold">4's</h3>
+										<h3 class="fw-bold">3's</h3>
+										<h3 class="fw-bold">2's</h3>
+										<h3 class="fw-bold">1's</h3>
+										<h3 class="fw-bold">Dot Ball</h3>
+										<h3 class="fw-bold">wicket</h3>
+								   </div>
+								   <div>
+										<h6 class="fw-bold text-uppercase text-success op-4">First Innings</h6>
+										<h3 class="fw-bold">{{run_inn_1}}</h3>
+										<h3 class="fw-bold">{{six_innings_1}}</h3>
+										<h3 class="fw-bold">{{four_innings_1}}</h3>
+										<h3 class="fw-bold">{{three_innings_1}}</h3>
+										<h3 class="fw-bold">{{two_innings_1}}</h3>
+										<h3 class="fw-bold">{{one_innings_1}}</h3>
+										<h3 class="fw-bold">{{dot_innings_1}}</h3>
+										<h3 class="fw-bold">{{wicket_innings_1}}</h3>
+									</div>
+									<div>
+										<h6 class="fw-bold text-uppercase text-danger op-4">Second Innings</h6>
+										<h3 class="fw-bold">{{run_inn_2}}</h3>
+										<h3 class="fw-bold">{{six_innings_2}}</h3>
+										<h3 class="fw-bold">{{four_innings_2}}</h3>
+										<h3 class="fw-bold">{{three_innings_2}}</h3>
+										<h3 class="fw-bold">{{two_innings_2}}</h3>
+										<h3 class="fw-bold">{{one_innings_2}}</h3>
+										<h3 class="fw-bold">{{dot_innings_2}}</h3>
+										<h3 class="fw-bold">{{wicket_innings_2}}</h3>
+									</div>
+							</div>
+							<div>
+								<h3 class="fw-bold">Result:   Team  won by {{result}} run</h3>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7">
+				   
+					<div class="card full-height">
+						<div id="formShow">
+							<div class="form-group">
+								<label class="col-md-8 control-label" for="textinput">Player ID </label>
+								<div class="col-md-8">
+									<input id="playerID" name="playerID" type="text" placeholder="Player ID" class="form-control input-md" required>
+								</div>
+								<br>
+								<div class="submitbtn pl-3">
+									<button type="submit" id="submit" class="btn btn-primary">Submit</button>
+								</div>	
+								
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="card-title">Individual Stats Per Match(cricket)</div>
+							<div class="row py-3">
+								<div class="col-md-4 d-flex flex-column justify-content-around">
+									<h4>Match Id: {{match_ref_id}}</h4>
+									<div>
+										<h6 class="fw-bold text-uppercase text-primary op-8">Batsman Name</h6>
+										<h3 class="fw-bold">{{playerName}} </h3>
+									</div>
+									<br> 
+									<table class="table table-striped">
+										<h4>Batting</h4>
+										<thead>
+										  <tr>
+											<th scope="col">Format</th>
+											<th scope="col">Runs</th>
+											<th scope="col">Ball Faced</th>
+											<th scope="col">Strike Rate</th>
+											<th scope="col">6s</th>
+											<th scope="col">4s</th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+											<th scope="row">ODI</th>
+											<td>{{batsmanRun}} </td>
+											<td>{{ballFaced}}</td>
+											<td>{{strikerate}}</td>
+											<td>{{batRunSix}}</td>
+											<td>{{batRunFour}}</td>
+										  </tr>
+										</tbody>
+									  </table>
+									  <table class="table table-striped">
+										<h4>Bowling</h4>
+										<thead>
+										  <tr>
+											<th scope="col">Format</th>
+											<th scope="col">Balls</th>
+											<th scope="col">Runs</th>
+											<th scope="col">wicket</th>
+											<th scope="col">Avg</th>
+											<th scope="col">Eco</th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+											<th scope="row">ODI</th>
+											<td>{{bowlerBall}} </td>
+											<td>{{bowlerRun}}</td>
+											<td>{{bowlerWicket}}</td>
+											<td>{{bowlerAvg}}</td>
+											<td>{{bowlerEco}}</td>
+										  </tr>
+										</tbody>
+									  </table>
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!---Cricket Overall Individual ---->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card full-height">
+						<div class="card-body">
+							<div class="card-title">Overall Individual Stats(cricket)</div>
+							<div class="row py-3">
+								<div class="col-md-4 d-flex flex-column justify-content-around">
+									<h4>Match Id: {{match_ref_id}}</h4>
+									<div>
+										<h6 class="fw-bold text-uppercase text-primary op-8">Batsman Name</h6>
+										<h3 class="fw-bold">{{playerName}} </h3>
+									</div>
+									<br> 
+									<table class="table table-striped">
+										<h4>Batting</h4>
+										<thead>
+										  <tr>
+											<th scope="col">Format</th>
+											<th scope="col">Total Match Played</th>
+											<th scope="col">Runs</th>
+											<th scope="col">Ball Faced</th>
+											<th scope="col">Strike Rate</th>
+											<th scope="col">Highest Score</th>
+											<th scope="col">100s</th>
+											<th scope="col">50s</th>
+											<th scope="col">6s</th>
+											<th scope="col">4s</th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+											<th scope="row">ODI</th>
+											<td>{{tmp}} </td>
+											<td>{{batsmanRun}} </td>
+											<td>{{ballFaced}}</td>
+											<td>{{strikerate}}</td>
+											<td>{{tmp}}</td>
+											<td>{{tmp}}</td>
+											<td>{{tmp}}</td>
+											<td>{{batRunSix}}</td>
+											<td>{{batRunFour}}</td>
+										  </tr>
+										</tbody>
+									  </table>
+									  <table class="table table-striped">
+										<h4>Bowling</h4>
+										<thead>
+										  <tr>
+											<th scope="col">Format</th>
+											<th scope="col">Total Match Played</th>
+											<th scope="col">Balls</th>
+											<th scope="col">Runs</th>
+											<th scope="col">wicket</th>
+											<th scope="col">Avg</th>
+											<th scope="col">Eco</th>
+											<th scope="col">Best Bowling Fgr.</th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+											<th scope="row">ODI</th>
+											<td>{{tmp}} </td>
+											<td>{{bowlerBall}} </td>
+											<td>{{bowlerRun}}</td>
+											<td>{{bowlerWicket}}</td>
+											<td>{{bowlerAvg}}</td>
+											<td>{{bowlerEco}}</td>
+											<td>{{BBF}}</td>
+										  </tr>
+										</tbody>
+									  </table>
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--- Volleyball Per Match Report ---->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card full-height">
+						<div class="card-body">
+							<div class="card-title">Volleyball Individual Player Report</div>
+							<div class="row py-3">
+								<div class="col-md-6 d-flex flex-column justify-content-around">
+									<h4>Match Id: {{match_ref_id}}</h4>
+									<div>
+										<h6 class="fw-bold text-uppercase text-primary op-3">Player Name</h6>
+										<h3 class="fw-bold">{{playerName}} </h3>
+									</div>
+									<br> 
+									
+										<div class="row">
+											<div class="col-lg-7">
+												<h6 class="fw-bold text-uppercase text-success op-6">Action</h6>
+												<h3  class="fw-bold">Smash</h3>
+												<h3  class="fw-bold">Barred/Block</h3>
+												<h3  class="fw-bold">Error</h3>
+												<h3  class="fw-bold">Points</h3>
+											</div>
+									
+											<div class="col-lg-5">
+												<h6 class="fw-bold text-uppercase text-success op-6">Number</h6>
+												<h3 id="smash" class="fw-bold">{{numOfSmashed}}</h3>
+												<h3 id="barred" class="fw-bold">{{numOfBarred}}</h3>
+												<h3 id="error" class="fw-bold">{{numofError}}</h3>
+												<h3 id="point" class="fw-bold">{{numOfPoint}}</h3>
+											</div>
+											
+											<div class="mt-5 ml-5" id="piechart"></div>
+										</div>
+
+									</div>  
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script src="/static/assets/js/setting-demo.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	
+
+	<!----Custom JS------>
+	<script type="text/javascript">
+		$(document).ready(function () {   
+			var smash = $('#smash').text();
+			smash =parseInt(smash);
+			var barred = $('#barred').text();
+			barred =parseInt(barred);
+			var error = $('#error').text();
+			error =parseInt(error);
+			var point = $('#point').text();
+			//alert(barred);
+	
+		// Load google charts
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		// Draw the chart and set the chart values
+		function drawChart() {
+		  var data = google.visualization.arrayToDataTable([
+		  ['Action', 'Point'],
+		  ['smash', smash],
+		  ['barred', barred],
+		  ['error', error],
+		]);
+		
+		  // Optional; add a title and set the width and height of the chart
+		  var options = {'title':'Individual Stats', 'width':400, 'height':300,backgroundColor: '#E4E4E4',};
+		
+		  // Display the chart inside the <div> element with id="piechart"
+		  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		  chart.draw(data, options);
+		}
+	});
+	</script>
+		
+
+{% endblock javascripts %}

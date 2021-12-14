@@ -1,0 +1,147 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>School Registration form</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <!--------Include Navbar-------->
+      {% include "firstapp/navbar.html" %}
+
+      <!--------Form-------->
+	      <div class="row">
+		        		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" action = "" method = "POST">
+            {% csrf_token %}
+            <fieldset>
+
+            <!-- Form Name -->
+            <legend>{{name}}</legend>
+            <!-- School Name -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">School Name</label>
+              <div class="col-md-9">
+                <input id="textinput" name="schoolName" type="text" placeholder="school name" class="form-control input-md" required>
+              </div>
+            </div>
+            <!-- Address -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Address</label>
+                <div class="col-md-9">                     
+                    <textarea class="form-control" id="" name="schoolAddress" placeholder="address.." required></textarea>
+                </div>
+                </div>
+            <!-- Thana Name -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Thana</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="schoolThana" type="text" placeholder="Thana" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- post code -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Post Code</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="postCode" type="text" placeholder="Post Code" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- subdistrict -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Sub District</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="subDistrict" type="text" placeholder="SubDistrict" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- District Name -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">District</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="district" type="text" placeholder="district" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Phone No. -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Phone No.</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="phoneNo" type="text" placeholder="phone no." class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Email</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="email" type="email" placeholder="name@example.com" class="form-control input-md" required>
+                </div>
+              </div>
+            <!--Contact Person Name -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Contact Person Name </label>
+                <div class="col-md-9">
+                  <input id="textinput" name="contPerName" type="text" placeholder="Name " class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Designation -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Username</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="schlUname" type="text" placeholder="username" class="form-control input-md" required>
+                </div>
+            </div>
+            <!-- Password-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Password</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="password" type="text" placeholder="password" class="form-control input-md" required>
+                </div>
+            </div>
+            <!-- School Type-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">School Type</label>
+                <div class="col-md-9">
+                  <select id="textinput" name="schoolType" class="form-control" required>
+                    <option value="Primary">Primary</option>
+                    <option value="Secondary">Secondary</option>
+                    <option value="Madrasa">Madrasa</option>
+                  </select>
+                </div>
+              </div>
+            
+              <!-- Student Type-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Student Type</label>
+                <div class="col-md-9">
+                  <select id="textinput" name="studentType" class="form-control" required>
+                    <option value="Boys">Boys</option>
+                    <option value="Girl">Girl</option>
+                    <option value="Coed">Coed</option>
+                  </select>
+                </div>
+              </div>  
+            
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+            <label class="col-md-3 control-label" for="button1id"></label>
+            <div class="col-md-8">
+                <button type="submit" id="submit" name="submit" class="btn btn-success">Submit</button>
+                <button type="submit" id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+            </div>
+            </div>
+
+</fieldset>
+</form>
+		</div>
+		
+	</div>
+</div>
+         
+
+        
+
+
+
+    </body>
+</html>

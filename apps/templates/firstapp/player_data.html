@@ -1,0 +1,141 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bootstrap multicolumn form</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+       <!--------Include Navbar-------->
+        {% include "firstapp/navbar.html" %}
+
+       <!--------Form-------->
+	      <div class="row">
+		        		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" action = "" method = "POST">
+            {% csrf_token %}
+            <fieldset>
+
+            <!-- Form Name -->
+            <legend>{{name}}</legend>
+            <!-- Date Stamp -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Date Stamp</label>
+              <div class="col-md-9">
+                <input id="textinput" name="dateStamp" type="text" placeholder="date stamp" class="form-control input-md" required>
+              </div>
+            </div>
+            <!-- Player ID -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Player ID</label>
+                <div class="col-md-9">                     
+                    <input class="form-control" id="textinput" name="playerID" placeholder="id" required>
+                </div>
+                </div>
+            <!-- Name -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Name</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="playerName" type="text" placeholder="name" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- DOB -->
+            <div class="form-group">
+                <!-- DOB  -->
+               <label class="col-md-3 control-label" for="textinput">Date of Birth: </label>  
+               <div class="col-md-3">
+                   <input id="textinput" name="birthDate" type="date" placeholder="placeholder" class="form-control input-md" required>
+               </div>
+            </div>   
+            <!-- Gender -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="gender">Gender</label>
+                <div class="col-md-3"> 
+                    <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="gender" id="radios-0" value="1" checked="checked">
+                    Yes
+                    </label> 
+                    <label class="radio-inline" for="radios-1">
+                    <input type="radio" name="gender" id="radios-1" value="2">
+                    No
+                    </label> 
+                </div>
+            </div>
+            
+            <!-- Body weight -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Body weight</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="weight" type="text" placeholder="bodyWeight" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Body Type-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Body Type</label>
+              <div class="col-md-9">
+                <select id="textinput" name="bodyType" class="form-control" required>
+                  <option value="Endomorph">Endomorph</option>
+                  <option value="Mesomorph">Mesomorph</option>
+                  <option value="Ectomorph">Ectomorph</option>
+                </select>
+              </div>
+            </div>
+            <!-- Match Played -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Match Played</label>
+              <div class="col-md-9">
+                <input id="textinput" name="matchPlayed" type="number" placeholder="" class="form-control input-md" required>
+              </div>
+            </div>
+            <!-- Role Played -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Role Played</label>
+              <div class="col-md-9">
+                <input id="textinput" name="rolePlayed" type="text" placeholder="" class="form-control input-md" required>
+              </div>
+            </div>
+            <!-- Match Result-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Match Result</label>
+              <div class="col-md-9">
+                <select id="textinput" name="matchResult" class="form-control" required>
+                  <option value="Win">Win</option>
+                  <option value="Loss">Loss</option>
+                  <option value="Abandoned">Abandon</option>
+                  <option value="Draw">Draw</option>
+                </select>
+              </div>
+            </div>
+            <!-- Game Contribution -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="textinput">Game Contribution</label>
+              <div class="col-md-9">
+                <input id="textinput" name="gameContr" type="text" placeholder="" class="form-control input-md" required>
+              </div>
+            </div>
+
+            <!-- Button (submit) -->
+            <div class="form-group">
+            <label class="col-md-3 control-label" for="button1id"></label>
+            <div class="col-md-8">
+                <button type="submit" id="submit" name="submit" class="btn btn-success">Submit</button>
+                <button type="submit" id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+            </div>
+            </div>
+
+</fieldset>
+</form>
+		</div>
+		
+	</div>
+</div>
+         
+
+        
+
+
+
+    </body>
+</html>

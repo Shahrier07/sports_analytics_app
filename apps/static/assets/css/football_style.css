@@ -1,0 +1,56 @@
+  
+  /*range style*/
+  .attack{
+    background: linear-gradient(to right, #f7d3d2 0%, #f35050 50%, rgb(241, 54, 54) 50%, rgb(250, 4, 4) 100%);
+    border-radius: 8px; -webkit-appearance: none;
+  }
+  .defence{
+      background: linear-gradient(to right, #f5f5ec 0%, #eef07b 50%, rgb(243, 230, 47) 50%, rgb(232, 248, 2) 100%);
+      border-radius: 8px; -webkit-appearance: none;
+    }
+    .running{
+      background: linear-gradient(to right, #ecedee 0%, #78acf0 50%, rgb(112, 157, 240) 50%, rgb(4, 92, 173) 100%);
+      border-radius: 8px;  -webkit-appearance: none;
+    }
+    .passing{
+      background: linear-gradient(to right, #f5f1f3 0%, #76f39c 50%, rgb(107, 248, 130) 50%, rgb(4, 247, 36) 100%);
+      border-radius: 8px;  -webkit-appearance: none;
+    }
+
+    
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }

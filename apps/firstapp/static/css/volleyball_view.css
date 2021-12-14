@@ -1,0 +1,71 @@
+.field{
+    position: relative;
+    height: 300px;
+    width: 700px;
+    background-color: rgb(26, 219, 233);
+}
+.court{
+    position: absolute;
+    height: 250px;
+    width: 550px;
+    background-color: rgb(196, 131, 106);
+    left: 10%;
+    top:9%;
+    border: 2px solid whitesmoke;
+}
+.center_line{
+    position: absolute;
+    border: 2px solid rgb(10, 10, 10);
+    height: 247px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}
+.attack_line_left{
+    position: absolute;
+    border: 1px dashed rgb(196, 192, 192);
+    height: 250px;
+    position: absolute;
+    left: 33%;
+    margin-left: -3px;
+    top: 0;
+}
+.attack_line_right{
+    position: absolute;
+    border: 1px dashed rgb(196, 192, 192);
+    height: 250px;
+    position: absolute;
+    right: 33%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.btn-visited{    
+    background-color: blue;
+    color: white;   
+}
+
+.out{
+    position: relative;
+}
+.out2{
+   margin-right: 600px;
+}
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 50px solid #555;
+}

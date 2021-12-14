@@ -1,0 +1,677 @@
+{% extends "layouts/base.html" %}
+<head>
+     {% block stylesheets %}
+    <!-- Specific Page CSS goes HERE  -->
+    <link rel="stylesheet" href="/static/assets/css/match_view.css"> 
+     {% endblock stylesheets %}
+    <title>Match View</title>
+</head>
+
+{% block title %} UI Avatars {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+
+
+<body >
+{% block content %}
+    <div class="container">
+       {% include "firstapp/navbar.html" %}
+       <div class="row">
+		    <div class="">
+         
+            <fieldset>
+            
+            <div class="card" style="width: 70rem;">
+              <div class="card-header">
+                  <div class="row">
+                    <div class="col-6">
+                      <legend>Match View</legend>
+                      <p>Match ID: <p>
+                    </div>
+                    <div class="col-3">
+                      <legend>Record Balling</legend>
+                      
+                      <p>Over No: 
+                        <input type="text" name="over" id="over" value= 0.1 style="border-width:0px;
+                          border:none; width: 30px "/>
+                      <p>
+                    </div>
+                    <div class="col-3">
+                      <h6>Total No. of Ball Served: #
+                        <input type="text" name="totalBall" id="totalBall" value= 0 style="border-width:0px;
+                          border:none; width: 30px " readonly/>
+                      </h6>      
+                    </div>
+                  </div>  
+              </div>
+              <div class="card-body">
+              <div class="row">
+                <div class="col-lg-1">
+                  <h5>Batsmans</h5>
+                  {% csrf_token %}
+                  {% for element in objectlist %}
+                    {% if element.teamID == "t1" %}
+                       <input name="batsman" value="{{element.player1}}" type="radio" />
+                       <label for="">{{element.player1}}</label> <br>
+                       <input name="batsman" value="{{element.player2}}" type="radio" />
+                       <label for="">{{element.player2}}</label> <br>
+                       <input name="batsman" value="{{element.player3}}" type="radio" />
+                       <label for="">{{element.player3}}</label> <br>
+                       <input name="batsman" value="{{element.player4}}" type="radio" />
+                       <label for="">{{element.player4}}</label> <br>
+                       <input name="batsman" value="{{element.player5}}" type="radio" />
+                       <label for="">{{element.player5}}</label> <br>
+                       <input name="batsman" value="{{element.player6}}" type="radio" />
+                       <label for="">{{element.player6}}</label> <br>
+                       <input name="batsman" value="{{element.player7}}" type="radio" />
+                       <label for="">{{element.player7}}</label> <br>
+                       <input name="batsman" value="{{element.player8}}" type="radio" />
+                       <label for="">{{element.player8}}</label> <br>
+                       <input name="batsman" value="{{element.player9}}" type="radio" />
+                       <label for="">{{element.player9}}</label> <br>
+                       <input name="batsman" value="{{element.player10}}" type="radio" />
+                       <label for="">{{element.player10}}</label> <br>
+                       <input name="batsman" value="{{element.player11}}" type="radio" />
+                       <label for="">{{element.player11}}</label> <br>
+                       
+                    {% endif %}
+                  {% endfor %}
+                  
+                </div>
+                <div class="col-lg-1">
+                  <h5>Running Mate</h5>
+                  {% csrf_token %}
+                  {% for element in objectlist %}
+                    {% if element.teamID == "t1" %}
+                       <input name="runMate" value="{{element.player1}}" type="radio" />
+                       <label for="">{{element.player1}}</label> <br>
+                       <input name="runMate" value="{{element.player2}}" type="radio" />
+                       <label for="">{{element.player2}}</label> <br>
+                       <input name="runMate" value="{{element.player3}}" type="radio" />
+                       <label for="">{{element.player3}}</label> <br>
+                       <input name="runMate" value="{{element.player4}}" type="radio" />
+                       <label for="">{{element.player4}}</label> <br>
+                       <input name="runMate" value="{{element.player5}}" type="radio" />
+                       <label for="">{{element.player5}}</label> <br>
+                       <input name="runMate" value="{{element.player6}}" type="radio" />
+                       <label for="">{{element.player6}}</label> <br>
+                       <input name="runMate" value="{{element.player7}}" type="radio" />
+                       <label for="">{{element.player7}}</label> <br>
+                       <input name="runMate" value="{{element.player8}}" type="radio" />
+                       <label for="">{{element.player8}}</label> <br>
+                       <input name="runMate" value="{{element.player9}}" type="radio" />
+                       <label for="">{{element.player9}}</label> <br>
+                       <input name="runMate" value="{{element.player10}}" type="radio" />
+                       <label for="">{{element.player10}}</label> <br>
+                       <input name="runMate" value="{{element.player11}}" type="radio" />
+                       <label for="">{{element.player11}}</label> <br>
+                       
+                    {% endif %}
+                  {% endfor %}
+                  
+                </div>
+                
+                <div class="col-lg-1">
+                  <h5>Bowlers</h5>
+                  {% csrf_token %}
+                  {% for element in objectlist %}
+                    {% if element.teamID == "t2" %}
+                       <input name="bowler" value="{{element.player1}}" type="radio" />
+                       <label for="">{{element.player1}}</label> <br>
+                       <input name="bowler" value="{{element.player2}}" type="radio" />
+                       <label for="">{{element.player2}}</label> <br>
+                       <input name="bowler" value="{{element.player3}}" type="radio" />
+                       <label for="">{{element.player3}}</label> <br>
+                       <input name="bowler" value="{{element.player4}}" type="radio" />
+                       <label for="">{{element.player4}}</label> <br>
+                       <input name="bowler" value="{{element.player5}}" type="radio" />
+                       <label for="">{{element.player5}}</label> <br>
+                       <input name="bowler" value="{{element.player6}}" type="radio" />
+                       <label for="">{{element.player6}}</label> <br>
+                       <input name="bowler" value="{{element.player7}}" type="radio" />
+                       <label for="">{{element.player7}}</label> <br>
+                       <input name="bowler" value="{{element.player8}}" type="radio" />
+                       <label for="">{{element.player8}}</label> <br>
+                       <input name="bowler" value="{{element.player9}}" type="radio" />
+                       <label for="">{{element.player9}}</label> <br>
+                       <input name="bowler" value="{{element.player10}}" type="radio" />
+                       <label for="">{{element.player10}}</label> <br>
+                       <input name="bowler" value="{{element.player11}}" type="radio" />
+                       <label for="">{{element.player11}}</label> <br>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                
+                 <div class="col-lg-1">
+                  <h5>Fielders</h5>
+                  {% csrf_token %}
+                  {% for element in objectlist %}
+                    {% if element.teamID == "t2" %}
+                       <input name="fielder" value="{{element.player1}}" type="radio" />
+                       <label for="">{{element.player1}}</label> <br>
+                       <input name="fielder" value="{{element.player2}}" type="radio" />
+                       <label for="">{{element.player2}}</label> <br>
+                       <input name="fielder" value="{{element.player3}}" type="radio" />
+                       <label for="">{{element.player3}}</label> <br>
+                       <input name="fielder" value="{{element.player4}}" type="radio" />
+                       <label for="">{{element.player4}}</label> <br>
+                       <input name="fielder" value="{{element.player5}}" type="radio" />
+                       <label for="">{{element.player5}}</label> <br>
+                       <input name="fielder" value="{{element.player6}}" type="radio" />
+                       <label for="">{{element.player6}}</label> <br>
+                       <input name="fielder" value="{{element.player7}}" type="radio" />
+                       <label for="">{{element.player7}}</label> <br>
+                       <input name="fielder" value="{{element.player8}}" type="radio" />
+                       <label for="">{{element.player8}}</label> <br>
+                       <input name="fielder" value="{{element.player9}}" type="radio" />
+                       <label for="">{{element.player9}}</label> <br>
+                       <input name="fielder" value="{{element.player10}}" type="radio" />
+                       <label for="">{{element.player10}}</label> <br>
+                       <input name="fielder" value="{{element.player11}}" type="radio" />
+                       <label for="">{{element.player11}}</label> <br>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <div class="col-lg-1">
+                  <h5>Runs</h5>
+                  {% csrf_token %}
+                       <input name="run" value="0" type="radio" />
+                       <label for="">0</label> <br>
+                       <input name="run" value="1" type="radio" />
+                       <label for="">1</label> <br>
+                       <input name="run" value="2" type="radio" />
+                       <label for="">2</label> <br>
+                       <input name="run" value="3" type="radio" />
+                       <label for="">3</label> <br>
+                       <input name="run" value="4" type="radio" />
+                       <label for="">4</label> <br>
+                       <input name="run" value="5" type="radio" />
+                       <label for="">5</label> <br>
+                       <input name="run" value="6" type="radio" />
+                       <label for="">6</label> <br>               
+                </div>
+                <div class="col-lg-2">
+                  <h5>Outs</h5>
+                  {% csrf_token %}
+                       <input name="out" value="N/A" type="radio"  />
+                       <label for="">N/A</label> <br>
+                       <input name="out" value="bowled" type="radio" />
+                       <label for="">Bowled Out</label> <br>
+                       <input name="out" value="catchOut" type="radio" />
+                       <label for="">Catch Out</label> <br>
+                       <input name="out" value="lbw" type="radio" />
+                       <label for="">LBW</label> <br>
+                       <input name="out" value="stamping" type="radio" />
+                       <label for="">Stamping </label> <br>
+                       <input name="out" value="run_Out" type="radio" />
+                       <label for="">Run Out</label> <br>
+                       
+                       
+                       <div class="menu" style="display: none;">
+                          <b>Batsman Name</b>
+                          </br>
+                          <input name="outBatsman1" id= "outBatsman1" value="no1" type="checkbox" />
+                          <label id= "no1" for="">no1</label> <br>
+                          <input name="outBatsman2" id= "outBatsman2" value="bo2" type="checkbox" />
+                          <label id= "no2" for="">no2</label> <br>
+
+                          
+                          
+                       
+                      </div>
+                    
+                    <div class="pt-3">
+                      
+                      <h5>Bowler Type</h5>
+                      {% csrf_token %}
+                          <input name="bowlerType" value="fast" type="radio" />
+                          <label for="">Fast</label> <br>
+                          <input name="bowlerType" value="spin" type="radio" />
+                          <label for="">Spin</label> <br>    
+                          
+                        
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                  <h5>Extra Run Type</h5>
+                      {% csrf_token %}
+                          <input name="extraRunType" value="N/A" type="radio"  />
+                          <label for="">N/A</label> <br>
+                          <input name="extraRunType" value="byRun" type="radio" />
+                          <label for="">By Run</label> <br>
+                          <input name="extraRunType" value="wide" type="radio" />
+                          <label for="">Wide</label> <br>
+                          <input name="extraRunType" value="noBall" type="radio" />
+                          <label for="">No Ball</label> <br>
+                  
+                 
+                      {% csrf_token %}
+                      <div class="" id="extraRunField">
+                       <h5>Extra Run</h5>
+                        <span class="minus">-</span>
+                        <input type="text" id="extraRun" value="0"/>
+                        <span class="plus">+</span>
+                      </div>
+
+                  <div class="pt-5"></div>
+                  <h5>Show Data</h5>
+                  <button id="showData" type="button">O</button>
+                </div>
+                 <div class="col-lg-2">
+                  <div class="card" style="width: 25rem;">
+                      
+                      <div class="card-body">
+                        <h5 class="card-title">Score Simulator</h5>
+                        <p>(Bat,RMate, Blr, Fldr,run, out, extra, btype, over )</p>
+                        <div id="demo" class="card-text"></div> 
+                        <div class="pt-3"></div>
+                        <button id="submit" type="button">Submit</button> 
+                          
+                        </p>
+                      </div>
+                    </div>
+              </div>
+             </div>
+            </fieldset>
+         
+        </div>
+      </div>
+</div>
+
+{% endblock %}
+<!--Scripts-->
+{% block javascripts %}
+
+
+
+
+
+<script>
+
+$(document).ready(function () {
+
+  var tmp = new Array(12);
+  $("#submit").hide(); //firstly, hide submit button
+  
+  //batsman
+ $('input:radio[name="batsman"]').change(function(){
+    var checked = $("input[name='batsman']:checked").val();
+   
+    var outBatsman1= checked; //set for out batsman1
+    $('#outBatsman1').val(outBatsman1);
+    $("#no1").text(outBatsman1);
+
+    if(tmp.length == 12){
+      tmp.splice(0,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[0]= checked;
+      }
+    }
+
+});
+//runMate
+ $('input:radio[name="runMate"]').change(function(){
+    var checked = $("input[name='runMate']:checked").val();
+    var outBatsman2= checked; //set for out batsman2
+    $('#outBatsman2').val(outBatsman2);
+    $("#no2").text(outBatsman2);
+
+
+    if(tmp.length == 12){
+      tmp.splice(1,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[1]= checked;
+      }
+    }
+});
+//bowler
+ $('input:radio[name="bowler"]').change(function(){
+    var checked = $("input[name='bowler']:checked").val();
+    if(tmp.length == 12){
+      tmp.splice(2,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+           tmp[2]= checked;
+      }
+    }
+});
+//fielder
+ $('input:radio[name="fielder"]').change(function(){
+    var checked = $("input[name='fielder']:checked").val();
+    if(tmp.length == 12){
+      tmp.splice(3,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[3]= checked;
+      }
+    }
+});
+//run
+ $('input:radio[name="run"]').change(function(){
+    var checked = $("input[name='run']:checked").val();
+    if(tmp.length == 12){
+      tmp.splice(4,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[4]= checked;
+      }
+    }
+});
+//Out
+ $('input:radio[name="out"]').change(function(){
+    var checked = $("input[name='out']:checked").val();
+    if(tmp.length == 12){
+      tmp.splice(5,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[5]= checked;
+      }
+    }
+    //out Batsman Name
+    if(checked === "N/A"){
+      if(tmp.length == 12){
+        tmp.splice(6,1,"N/A");
+        tmp.splice(7,1,"N/A");
+      }else{
+        //tmp.push("N/A");
+        tmp[6]= "N/A";
+        //tmp.push("N/A");
+        tmp[7]= "N/A";
+      }
+    }
+    
+    if(checked === "bowled" || checked === "catchOut"||checked === "lbw"||checked === "stamping"){
+        var outBatsman = $('#outBatsman1').val();
+        if(tmp.length == 12){
+          tmp.splice(6,1, outBatsman);
+          tmp.splice(7,1, "N/A");
+        }else{
+          //tmp.push(outBatsman);
+          tmp[6]= outBatsman;
+          //tmp.push("N/A");
+          tmp[7]= "N/A";
+          
+
+
+      }
+    }
+
+       
+});
+
+// Runout Batsman Name
+ $('input:radio[value="run_Out"]').change(function(){
+            $('.menu').slideToggle("slide");
+            //set out batsman
+            var outBatsman1 = $('#outBatsman1').val();
+            var outBatsman =[];
+
+            $("#outBatsman1").change(function() {
+               if(tmp.length == 12){
+                  if($(this).prop('checked')) {
+                    tmp.splice(6,1,outBatsman1);
+                  }else{
+                    tmp.splice(6,1,"N/A");
+                  }
+              }else{
+                if($(this).prop('checked')) {
+                    
+                    //alert(outBatsman1);
+                    //tmp.push(outBatsman1);
+                    tmp[6]= outBatsman1;
+
+                } else { 
+                  //tmp.push("N/A");
+                  tmp[6]= "N/A";
+                  tmp.splice(6,1,"N/A");
+                }
+              }
+              });
+              
+            var outBatsman2 = $('#outBatsman2').val();
+            var outBatsman =[];
+
+            $("#outBatsman2").change(function() {
+               if(tmp.length == 12){
+                  if($(this).prop('checked')) {
+                    tmp.splice(7,1,outBatsman2);
+                  }else{
+                    tmp.splice(7,1,"N/A");
+                  }
+              }else{
+                if($(this).prop('checked')) {
+                    //alert(outBatsman1);
+                    //tmp.push(outBatsman2);
+                    tmp[7]= outBatsman2;
+
+                } else { 
+                  //tmp.push("N/A");
+                  tmp[7]= "N/A";
+                }
+              }
+              });
+});
+
+
+
+//BowlerType
+ $('input:radio[name="bowlerType"]').change(function(){
+    var checked = $("input[name='bowlerType']:checked").val();
+    if(tmp.length == 12){
+      tmp.splice(8,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[8]= checked;
+      }
+    }
+});
+
+
+//extraRun Types
+ $('input:radio[name="extraRunType"]').change(function(){
+    var checked = $("input[name='extraRunType']:checked").val();
+    //Show and Hide extraRun field
+    if (checked === "N/A") {
+          $("#extraRunField").hide();
+    }else{
+          $("#extraRunField").show();
+    }
+    if(tmp.length == 12){
+      tmp.splice(9,1,checked);
+    }else{
+      if($(this).is(":checked")){
+          //alert(checked);
+          //tmp.push(checked);
+          tmp[9]= checked;
+      }
+    }
+});
+
+
+//Extra Run
+    $('.minus').click(function () {
+				var $input = $(this).parent().find('input');
+				var count = parseInt($input.val()) - 1;
+				count = count < 0 ? 1 : count;
+				$input.val(count);
+				$input.change();
+				return false;
+			});
+			$('.plus').click(function () {
+				var $input = $(this).parent().find('input');
+				$input.val(parseInt($input.val()) + 1);
+				$input.change();
+				return false;
+			});
+		
+    
+ 
+
+
+
+
+
+
+
+//##### show Button #####
+   
+  $('#showData').on('click', function () {
+		
+    //Show show data field
+     $("#demo").show();
+    
+    //Add Extra Run
+    var extraRun = $('#extraRun').val();
+    var  extraRun= parseFloat(extraRun);
+    if(tmp.length == 12){
+      tmp.splice(10,1,extraRun);
+      $('#extraRun').val("0");
+    }else{
+          //tmp.push(extraRun);
+          tmp[10]= extraRun;
+          $('#extraRun').val("0");
+    }
+    
+    //ball Serve
+    var counter = $('#over').val();
+    var counter = parseFloat(counter);   
+    
+    //add ball no. to tmp 
+    if(tmp.length == 12){
+      tmp.splice(11,1,counter);
+    }else{  
+          //tmp.push(counter);
+          tmp[11]= counter;
+    }
+    
+  
+    //Show data
+     document.getElementById("demo").innerHTML = tmp;
+     $("#submit").show();
+
+    if(tmp.includes(null) == true){
+      //document.getElementById("demo").innerHTML = tmp.length;
+      //$("#submit").show();
+    }else{
+      //alert("Select all the field");
+    }
+
+
+    
+
+    //text= tmp.toString()
+    
+  });
+
+//Final Submit
+$('#submit').on('click', function () {
+
+    //hide show data 
+    $("#demo").hide();
+    $("#submit").hide();
+    swal({
+      title: "Score Inserted!",
+     // text: "You clicked the button!",
+      icon: "success",
+      button: "Done!",
+    });
+    
+
+    //total ball serve
+    var totalBall = $('#totalBall').val();
+    totalBall++;
+    $('#totalBall').val(totalBall);
+    
+    //ball count
+    var counter = $('#over').val();
+    var counter = parseFloat(counter);             
+    
+    //check  ball or no ball
+    if ($("input[name='extraRunType']:checked").val() == "N/A") {
+         counter += 0.1 ;
+    }else if($("input[name='extraRunType']:checked").val() == "byRun") {
+         counter += 0.1 ;
+    }
+   
+    //if ball = 6 then next over;
+    let myarr = counter.toString(); // over(float) to string
+    const myArr = myarr.split(".");
+    if (myarr[2]==='7'){
+      counter += 0.4;
+    }
+    counter = counter.toFixed(1);
+    $('#over').val(counter);
+    counter -= 0.1;
+    counter = counter.toFixed(1);
+    
+    //add ball no. to tmp 
+    if(tmp.length == 12){
+      tmp.splice(11,1,counter);
+    }else{  
+          //tmp.push(counter);
+          //tmp[11]= counter;
+          
+    }
+
+
+
+
+
+  
+    //***********************************
+    //ajax
+    $.ajax({           
+            type: 'POST',
+            url: "{% url 'match_view' %}",
+            data: {'tmp': tmp,'matchId': 1},
+            dataType: 'json',
+            success: function (response) {
+                  console.log(response);
+                  if (response.status == 200){
+                    var text = tmp.join('>'); 
+                    document.getElementById("demo").innerHTML = text;
+                  }else{
+                    //document.getElementById("demo").innerHTML = tmp;
+                    //$("#submit").show();
+                  }
+            },
+            error: function (response) {
+                // alert the error if any error occured
+                alert(response.error);
+            }
+          });
+
+
+
+
+});
+
+
+  
+});
+
+        
+</script>
+{% endblock javascripts %}
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+span {cursor:pointer; }
+.number{}
+
+.minus, .plus{
+    width:25px;
+    height:25px;
+    background:#f2f2f2;
+    border-radius:4px;
+    border:1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+input{
+    height:20px;
+    width: 20px;
+    
+}  
+#extraRun{
+    height:30px;
+    width: 50px;
+    text-align: center;
+    font-size: 26px;
+    border:1px solid #ddd;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+}  

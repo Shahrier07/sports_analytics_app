@@ -1,0 +1,53 @@
+
+<head>
+    <title>Match Formation</title>
+</head>
+
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Avatars {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+<body>
+{% block content %}
+    <div class="container">
+       {% include "firstapp/navbar.html" %}
+       <div class="row ">
+             
+	    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" method="POST" action="">
+            <fieldset>
+            
+            <div class="card" style="width: 50rem;">
+              <div class="card-header">
+                  <legend>Match Formation Form</legend>
+              </div>
+              <div class="card-body">
+                
+                  {% csrf_token %}
+                  {{ form4.as_p }}
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+</div>
+{% endblock content %}
+<!--Date Picker -->
+
+<script>
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+  </script>
+
+
+
+
+</body>
+</html>
+

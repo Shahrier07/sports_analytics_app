@@ -1,0 +1,409 @@
+
+
+{% extends "layouts/base.html" %}
+<head>
+    
+    {% block stylesheets %}
+    <!-- Specific Page CSS goes HERE  -->
+    <link rel="stylesheet" href="/static/assets/css/volleyball_view.css"> 
+    <style>
+      /*Button Style*/
+      
+    </style>
+    {% endblock stylesheets %}
+    <title>Volleyball View</title>
+</head>
+
+{% block title %} UI Avatars {% endblock %} 
+
+
+
+<body >
+{% block content %}
+    <div class="container">
+        {% include "firstapp/navbar.html" %}
+       <div class="row">
+		    <div class="">
+         
+            <fieldset>
+            
+            <div class="card" style="width: 70rem;">
+              <div class="card-header">
+                  <div class="row">
+                    <div class="col-4">
+                      <legend>Volleyball View</legend>
+                      <p>Match ID: <p>
+                    </div>
+                    <div class="col-2">
+                      <legend>Set No: 
+                        <input type="text" name="set_no" id="set_no" value= 1 style="border-width:0px;
+                          border:none; width: 30px " />
+                        <button type="submit" class="btn btn-warning btn-lg mt-3" id="endMatchBtn"><b>End Match</b> </button>  
+                      </legend>
+                    </div>
+                    <div class="col-6">
+                      <!--Team1 point-->
+                      <div class="row team-1-point">
+                        <div class="col-4">
+                          <h4>Team 1: 
+                            <input type="text" name="team1Point" id="team1Point" value=0 style="border-width:0px;border:none; width: 30px " />
+                          </h4> 
+                        </div>
+                        <div class="col-1">
+                          <button  type="submit" value=""id="btn-team1Point" class="btn btn-success"> <i class="far fa-arrow-alt-circle-up"></i></button> 
+                        </div>
+                      </div>
+                  
+                      <!--Team2 point-->
+                      <div class="row team-2-point pt-3">
+                        <div class="col-4">
+                          <h4>Team 2: 
+                            <input type="text" name="team2Point" id="team2Point" value= 0 style="border-width:0px;border:none; width: 30px " />
+                          </h4> 
+                        </div>
+                        <div class="col-1">
+                          <button  type="submit" value="" id="btn-team2Point" class="btn btn-success"> <i class="far fa-arrow-alt-circle-up"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+              </div>
+              <div class="card-body">
+                <div class="action-button pb-2">
+                  <button  type="submit" value="serve" id="actionBtn" class=" btn btn-success btn-sm btn-action"><b> Serve</b> </button>
+                  <button  type="submit" value="smash"  id="actionBtn" class="btn btn-success btn-sm ml-4 btn-action">Smash</button>
+                  <button  type="submit" value="dig"  id="actionBtn" class="btn  btn-success btn-sm ml-4 btn-action">Dig</button>
+                  <button  type="submit" value="set"  id="actionBtn" class="btn  btn-success btn-sm ml-4 btn-action">Set</button>
+                  <button  type="submit" value="block"  id="actionBtn" class="btn btn-success  btn-sm ml-4 btn-action">Block</button>
+                  <button  type="submit" value="bump"  id="actionBtn" class="btn btn-success btn-sm ml-4 btn-action">Bump</button>
+                  <button  type="submit" value="pass"  id="actionBtn" class="btn btn-success btn-sm ml-4 btn-action">Pass</button>
+                  <button  type="submit" value="spike"  id="actionBtn" class="btn btn-success btn-sm ml-4 btn-action">Spike</button>
+                  
+                </div>
+              <div class="row">
+                  <div class="col-lg-8">
+                    <div class="field">
+                        <div class="out row" style="padding-top: 130px;">
+                          <!----Out Button 1------>
+                          <div class="col-6 out1 pl-3" >
+                            
+                          </div>
+                        </div>
+                        <div class="court">
+                            <div class="row"> <!---whole filed----->
+                              <!--1st Court-->
+                              <div class="leftside col-6"><!-----left court----->
+                               {% csrf_token %}
+                                {% for element in objectlist %}
+                                   {% if element.teamID == "t1" %}
+                                <div class="row"> <!-----each row----->
+                                  <div class="col-8 pt-4 pl-5">
+                                    <button  type="submit" value="{{element.player1}}" class="btn btn-default btn-circle">
+                                      {{element.player1}}
+                                    </button>
+                                  </div>
+                                  <div class="col-4 pt-4 pl-3">
+                                    <button  type="submit" value="{{element.player2}}" class="btn btn-default btn-circle">
+                                      {{element.player2}}
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="row"> <!-----each row----->
+                                  <div class="col-8 pt-5 pl-5">
+                                    <button  type="submit" value="{{element.player3}}" class="btn btn-default btn-circle">
+                                      {{element.player3}}
+                                    </button>
+                                  </div>
+                                  <div class="col-4 pt-5 pl-3">
+                                    <button  type="submit" value="{{element.player4}}" class="btn btn-default btn-circle">
+                                      {{element.player4}}
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="row"> <!--each row----->
+                                  <div class="col-8 p-5">
+                                    <button  type="submit" value="{{element.player5}}" class="btn btn-default btn-circle">
+                                      {{element.player5}}
+                                    </button>
+                                  </div>
+                                  <div class="col-4 pl-3 pt-5 ">
+                                    <button  type="submit" value="{{element.player6}}" class="btn btn-default btn-circle">
+                                      {{element.player6}}
+                                    </button>
+                                  </div>
+                                </div>
+                                  {% endif %}
+                                {% endfor %}
+                              </div>
+                              <!------2nd Court-------->
+                              <div class="rightside col-6"><!-----right court----->
+                                {% csrf_token %}
+                                 {% for element in objectlist %}
+                                    {% if element.teamID == "t2" %}
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-4 pl-5">
+                                     <button  type="submit" value="{{element.player1}}" class="btn btn-default btn-circle">
+                                       {{element.player1}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-4 ">
+                                     <button  type="submit" value="{{element.player2}}" class="btn btn-default btn-circle">
+                                       {{element.player2}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-5 pl-5">
+                                     <button  type="submit" value="{{element.player3}}" class="btn btn-default btn-circle">
+                                       {{element.player3}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-5 ">
+                                     <button  type="submit" value="{{element.player4}}" class="btn btn-default btn-circle">
+                                       {{element.player4}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-5 pl-5">
+                                     <button  type="submit" value="{{element.player5}}" class="btn btn-default btn-circle">
+                                       {{element.player5}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-5 ">
+                                     <button  type="submit" value="{{element.player6}}" class="btn btn-default btn-circle">
+                                       {{element.player6}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                   {% endif %}
+                                 {% endfor %}
+                               </div>
+
+
+                            </div>
+                            <div class="attack_line_left"></div>
+                            <div class="center_line"></div>
+                            <div class="attack_line_right"></div>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <div class="action-button pb-2">
+                      <button  type="submit" value="wrong serve"  id="actionBtn" class="btn btn-danger btn-sm  btn-action"> <span style="font-size: 13px">Wrong <br> Serve </span> </button>
+                      <button  type="submit" value="outside"  id="actionBtn" class="btn btn-danger btn-sm ml-4 btn-action">Outside</button>
+                      <button  type="submit" value="miss"  id="actionBtn" class="btn btn-danger btn-sm ml-4 btn-action">Miss</button>
+                      
+                      <button type="button" id= "pausebtn" class="btn btn-light" style="margin-left: 250px;">Pause </button>
+                      <button type="button" id= "startbtn" class="btn btn-light ml-3" >Start </button>
+                    </div>
+                  </div>
+                 
+                 
+                 
+                 <div class="col-lg-3">
+                  <div class="card" style="width: 20rem;">
+                      
+                      <div class="card-body">
+                        <h5 class="card-title">Volleyball Simulator</h5>
+                        <p>(Player, Action, time)</p>
+                        <div id="demo" class="card-text"></div> 
+                        <div class="pt-3"></div>  
+                        </p>
+                      </div>
+                    </div>
+              </div>
+             </div>
+            </fieldset>
+         
+        </div>
+      </div>
+</div>
+
+{% endblock content %}
+
+<!--Scripts-->
+{% block javascripts %}
+
+
+
+
+<script>
+
+$(document).ready(function () {
+
+  $("#endMatchBtn").hide(); //firstly, hide end match button
+  
+  var tmp = [6];
+  // get player id
+  $(document).on('click', '.btn-default', function() { 
+    //$(this).css('background','green');//change color
+
+    clicked=$(this).val(); //get player id
+    if(tmp.length == 3){
+      tmp.splice(0,1,clicked);
+      //alert(tmp);
+    }else{
+      tmp[0]=clicked;
+    }
+   });
+
+   //Set point
+   var setNo = $('#set_no').val();
+        if(tmp.length == 5){
+          tmp.splice(1,1,setNo);
+          //alert(tmp);
+        }else{
+          tmp[1]=setNo;
+        } 
+   //team1 point
+   var point1 = $('#team1Point').val();
+        if(tmp.length == 5){
+          tmp.splice(2,1,point1);
+          //alert(tmp);
+        }else{
+          tmp[2]=point1;
+        }
+    //point increase
+   $(document).on('click', '#btn-team1Point', function() { 
+    //$(this).css('background','green');//change color
+        var point1 = $('#team1Point').val();
+        point1++;
+        $('#team1Point').val(point1);
+        if(point1==25){
+          $("#endMatchBtn").show(); // show end match button
+        }
+        if(tmp.length == 5){
+          tmp.splice(2,1,point1);
+          //alert(tmp);
+        }else{
+          tmp[2]=point1;
+        }
+				
+   });
+   //team2 point
+   var point2 = $('#team2Point').val();
+   if(tmp.length == 5){
+          tmp.splice(3,1,point2);
+          //alert(tmp);
+        }else{
+          tmp[3]=point2;
+    }
+    //point increase
+   $(document).on('click', '#btn-team2Point', function() { 
+    //$(this).css('background','green');//change color
+        var point2 = $('#team2Point').val();
+        point2++;
+        $('#team2Point').val(point2);
+        if(point2==25){
+          $("#endMatchBtn").show(); // show end match button
+        }
+				if(tmp.length == 5){
+          tmp.splice(3,1,point2);
+          //alert(tmp);
+        }else{
+          tmp[3]=point2;
+        }
+   });
+   //match finished button
+   $('#endMatchBtn').click(function() {
+    
+    swal({
+      title: "Match Ended",
+     // text: "You clicked the button!",
+     
+     
+    });
+    location.reload(); //reload the page
+    
+  });
+
+
+
+
+   //disabled submit button
+   $('#pausebtn').on('click',function() {
+    $("button[id='actionBtn']").prop("disabled",true);
+    $(this).css('color','red'); // onclick button color red
+    $('#startbtn').css('color','green'); // onclick button color red
+    swal({
+      title: "Pause",
+     // text: "You clicked the button!",
+      icon: "warning",
+      
+    });
+   });
+   //enable submit button
+   $('#startbtn').on('click',function() {
+    $("button[id='actionBtn']").prop("disabled",false);
+    $('#pausebtn').css('color','black'); //
+    $(this).css('color','black'); //
+    swal({
+      title: "Start",
+     // text: "You clicked the button!",
+      icon: "success",
+      
+    });
+   });
+
+   
+   
+
+  $(document).on('click', '#actionBtn', function() {
+    //alert('hello');
+    //$(this).css('background','green');//change color
+    
+    
+    clicked=$(this).val(); //get action
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   
+    if(tmp.length == 3){
+      tmp.splice(4,1,time);
+      tmp.splice(5,1,clicked);
+      
+    }else{
+      tmp[4]=time;
+      tmp[5]= clicked;
+     
+    }
+    //document.getElementById("demo").innerHTML = tmp;
+    
+       //***********************************
+        //ajax
+        $.ajax({           
+                type: 'POST',
+                url: "{% url 'volleyball_view' %}",
+                data: {'tmp': tmp,'matchId': 2},
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.status == 200){
+                        var text = tmp.join('>'); 
+                        document.getElementById("demo").innerHTML = text;
+                    }else{
+                        document.getElementById("demo").innerHTML = tmp;
+                        //$("#submit").show();
+                    }
+                },
+                error: function (response) {
+                    // alert the error if any error occured
+                   //alert(response.error);
+                }
+        });       
+
+
+  });
+
+    });
+
+     
+</script>
+{% endblock javascripts %}
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+
+<head>
+    <title>Player Registration</title>    
+</head>
+
+
+{% extends "layouts/base.html" %}
+{% block title %} UI Avatars {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+<body>
+{% block content %}
+    <div class="container">
+        {% include "firstapp/navbar.html" %} 
+       <div class="row ">
+             
+	    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" method="POST" action="">
+            <fieldset>
+            
+            <div class="card" style="width: 60rem">
+              <div class="card-header">
+                  <legend>Player Registration Form</legend>
+              </div>
+              <div class="card-body">
+                
+                  {% csrf_token %}
+                   <div class= 'row'>
+
+                     <div  class='schoolDetails col-4 '>
+                        <div class="card" style="width: ;">
+                              <div class="card-header">
+                                Player Personal Details
+                              </div>
+                              <div class="card-body">
+                                <label>{{form2.playerID.label}} </label>
+                                {{form2.playerID}}
+                                <label>{{form2.schoolID.label}} </label>
+                                {{form2.schoolID}}
+                                <label>{{form2.fName.label}} </label>
+                                {{form2.fName}}
+                                <label>{{form2.lName.label}} </label>
+                                {{form2.lName}}
+                                <label>{{form2.birthDate.label}} </label>
+                                {{form2.birthDate}}
+                                <label>{{form2.ageGroup.label}} </label>
+                                {{form2.ageGroup}}
+                                <label>{{form2.gender.label}} </label>
+                                {{form2.gender}}
+                                <label>{{form2.size.label}} </label>
+                                {{form2.size}}
+                               
+                              </div>
+                            </div>
+                           
+                     </div> 
+                      <div  class='schoolDetails col-4 '>
+                        <div class="card" style="width: ;">
+                              <div class="card-header">
+                                Player Address
+                              </div>
+                              <div class="card-body">
+                                
+                                <label>{{form2.playerAddress.label}} </label>
+                                {{form2.playerAddress}}
+                                <label>{{form2.city.label}} </label>
+                                {{form2.city}}
+                                <label>{{form2.province.label}} </label>
+                                {{form2.province}}
+                                <label>{{form2.postCode.label}} </label>
+                                {{form2.postCode}}
+                               
+                              </div>
+                            </div>
+                           
+                     </div>   
+                     <div  class='schoolAdmin col-4'>
+                              <div class="card" style="width: ;">
+                              <div class="card-header">
+                               Parent Information
+                              </div>
+                              <div class="card-body">
+                                  <label>{{form2.parentName.label}} </label>
+                                  {{form2.parentName}}
+                                  <label>{{form2.parentPhoneNo.label}} </label>
+                                  {{form2.parentPhoneNo}}
+                                  <label>{{form2.parentWorkPlace.label}} </label>
+                                  {{form2.parentWorkPlace}}
+
+                              </div>
+                         
+                              <div class="text-center" style="width: 18rem">
+                                  <button type="submit" id="submit"  class="btn btn-primary">Submit</button>
+                              </div>
+                              <br>
+                            </div>
+                           
+                     </div>   
+                     </div>       
+                  </div>
+              </div>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+</div>
+{% endblock %}
+
+<!--Scripts-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Submit Button effect-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% block javascript %}
+<script>
+  $('#submit').on('click', function () {
+    //submit text
+    swal({
+      title: "School Data Inserted!",
+     // text: "You clicked the button!",
+      icon: "success",
+      button: "Done!",
+    });
+    
+  });
+</script>
+
+{% endblock javascript %}
+
+
+
+<!--Date Picker -->
+
+<script>
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+</script>
+
+
+</body>
+
+</html>
+

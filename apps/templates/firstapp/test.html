@@ -1,0 +1,426 @@
+
+
+{% extends "layouts/base.html" %}
+<head>
+    
+    {% block stylesheets %}
+    <!-- Specific Page CSS goes HERE  -->
+    <link rel="stylesheet" href="/static/assets/css/football_view.css"> 
+    <style>
+      .attack{
+      background: linear-gradient(to right, #f7d3d2 0%, #f35050 50%, rgb(241, 54, 54) 50%, rgb(250, 4, 4) 100%);
+      border-radius: 8px; -webkit-appearance: none;
+    }
+    .defence{
+        background: linear-gradient(to right, #f5f5ec 0%, #eef07b 50%, rgb(243, 230, 47) 50%, rgb(232, 248, 2) 100%);
+        border-radius: 8px; -webkit-appearance: none;
+      }
+      .running{
+        background: linear-gradient(to right, #ecedee 0%, #78acf0 50%, rgb(112, 157, 240) 50%, rgb(4, 92, 173) 100%);
+        border-radius: 8px;  -webkit-appearance: none;
+      }
+      .passing{
+        background: linear-gradient(to right, #f5f1f3 0%, #76f39c 50%, rgb(107, 248, 130) 50%, rgb(4, 247, 36) 100%);
+        border-radius: 8px;  -webkit-appearance: none;
+      }
+    </style>
+     {% endblock stylesheets %}
+    <title>Match View</title>
+    
+</head>
+
+{% block title %} UI Avatars {% endblock %} 
+
+
+
+<body >
+{% block content %}
+    <div class="container">
+        {% include "firstapp/navbar.html" %}
+       <div class="row">
+		    <div class="">
+         
+            <fieldset>
+            
+            <div class="card" style="width: 70rem;">
+              <div class="card-header">
+                  <div class="row">
+                    <div class="col-3">
+                      <legend>Football View</legend>
+                      <p>Match ID: <p>
+                      <p>Value (testing): <span id="demo"></span></p>
+                    </div>
+                    <div class="col-4">
+                      <legend> 
+                        <input type="text" name="set_no" id="set_no" value= "First Half" style="border-width:0px;
+                          border:none; width: 120px " />
+                        <input type="text" name="time" id="set_no" value= "45.00" style="border-width:0px;
+                        border:none; width: 120px " />
+                      </legend>
+                     
+                        <div class="row">
+                            <div class=""></div>
+                            <!---<h3>5 minutes Data:</h3>-->
+                            <div class="">
+                                <div id="timeContainer" class="well well-sm">
+                                    <h3>5 minutes Data</h3>
+                                    <div>Time left <span id="time" style="font-size: 25px;">05:00</span> minutes!</div>
+                                </div>
+                                
+                            <div class=""></div>
+                        </div>
+                    </div> 
+                      
+                    
+                    </div>
+                    <div class="col-4">
+                      <!--Team1 Score-->
+                      <div class="row team-1-point">
+                        <div class="col-4">
+                          <h4>Team 1 Score: 
+                            <input type="text" name="team1Score" id="team1Score" value=0 style="border-width:0px;border:none; width: 30px " />
+                          </h4> 
+                        </div>          
+                      </div>
+                  
+                      <!--Team2 Score-->
+                      <div class="row team-2-point pt-3">
+                        <div class="col-4">
+                          <h4>Team 2 Score: 
+                            <input type="text" name="team2Score" id="team2Score" value= 0 style="border-width:0px;border:none; width: 30px " />
+                          </h4> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+              </div>
+              <div class="card-body">
+                <div class="action-button pb-2">
+                  
+                </div>
+              <div class="row">
+                  <div class="col-lg-12">
+                   
+                        
+                       
+                            <div class="row"> <!---whole filed----->
+                              <!--1st Court-->
+                              <div class="leftside col-6"><!-----left court----->
+                               {% csrf_token %}
+                                {% for element in objectlist %}
+                                   {% if element.teamID == "t1" %}
+                                <div class="row"> <!-----each row----->
+                                  <div class="col-1 pt-2 pl-5">
+                                    <button  type="" id ="player1" value="{{element.player1}}" class="btn btn-default btn-circle">
+                                      {{element.player1}}
+                                    </button>
+                                  </div>
+                                  <div class="col-3 pt-2 ml-5">
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100"  class="slider attack" id="attack1" />
+                                    </span>
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100" class="slider defence"  id="defence1"/>
+                                    </span>
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100" class="slider running"  id="running1"/>
+                                    </span>
+                                    <span class="heat-slider--input" >
+                                      <input type="range" value="50" min="10" max="100"class="slider passing"  id="passing1" />
+                                    </span>
+                                  </div>  
+                                    
+                                 
+                                  <div class="col-1 pt-2 pl-5">
+                                    <button  type="" id ="player1" value="{{element.player2}}" class="btn btn-default btn-circle">
+                                      {{element.player2}}
+                                    </button>
+                                  </div>
+                                  <div class="col-3 pt-2 ml-5">
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100"  class="slider attack" id="attack2" />
+                                    </span>
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100" class="slider defence"  id="defence2"/>
+                                    </span>
+                                    <span class="heat-slider--input">
+                                      <input type="range" value="50" min="10" max="100" class="slider running"  id="running2"/>
+                                    </span>
+                                    <span class="heat-slider--input" >
+                                      <input type="range" value="50" min="10" max="100"class="slider passing"  id="passing2" />
+                                    </span>
+                                  </div>  
+                                </div>
+                                <div class="row"> <!-----each row----->
+                                  <div class="col-8 pt-2 pl-5">
+                                    <button  type="submit" value="{{element.player3}}" class="btn btn-default btn-circle">
+                                      {{element.player3}}
+                                    </button>
+                                  </div>
+                                  <div class="col-4 pt-2 pl-3">
+                                    <button  type="submit" value="{{element.player4}}" class="btn btn-default btn-circle">
+                                      {{element.player4}}
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="row"> <!--each row----->
+                                  <div class="col-8 p-5">
+                                    <button  type="submit" value="{{element.player5}}" class="btn btn-default btn-circle">
+                                      {{element.player5}}
+                                    </button>
+                                  </div>
+                                  <div class="col-4 pl-3 pt-2 ">
+                                    <button  type="submit" value="{{element.player6}}" class="btn btn-default btn-circle">
+                                      {{element.player6}}
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="row"> <!--each row----->
+                                    <div class="col-8 pl-5">
+                                      <button  type="submit" value="{{element.player7}}" class="btn btn-default btn-circle">
+                                        {{element.player7}}
+                                      </button>
+                                    </div>
+                                    <div class="col-4 pl-3 ">
+                                      <button  type="submit" value="{{element.player8}}" class="btn btn-default btn-circle">
+                                        {{element.player8}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="row"> <!--each row----->
+                                    <div class="col-8 pl-5">
+                                      <button  type="submit" value="{{element.player9}}" class="btn btn-default btn-circle">
+                                        {{element.player9}}
+                                      </button>
+                                    </div>
+                                    <div class="col-4 pl-3 pt-5 ">
+                                      <button  type="submit" value="{{element.player10}}" class="btn btn-default btn-circle">
+                                        {{element.player10}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="row"> <!--each row----->
+                                    <div class="col-8 pl-5">
+                                      <button  type="submit" value="{{element.player11}}" class="btn btn-default btn-circle">
+                                        {{element.player11}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                  {% endif %}
+                                {% endfor %}
+                              </div>
+                              <!------2nd Court-------->
+                              <div class="rightside col-6"><!-----right court----->
+                                {% csrf_token %}
+                                 {% for element in objectlist %}
+                                    {% if element.teamID == "t2" %}
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-4 pl-5">
+                                     <button  type="submit" value="{{element.player1}}" class="btn btn-default btn-circle">
+                                       {{element.player1}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-4 ">
+                                     <button  type="submit" value="{{element.player2}}" class="btn btn-default btn-circle">
+                                       {{element.player2}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-5 pl-5">
+                                     <button  type="submit" value="{{element.player3}}" class="btn btn-default btn-circle">
+                                       {{element.player3}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-5 ">
+                                     <button  type="submit" value="{{element.player4}}" class="btn btn-default btn-circle">
+                                       {{element.player4}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                 <div class="row"> <!-----each row----->
+                                   <div class="col-8 pt-5 pl-5">
+                                     <button  type="submit" value="{{element.player5}}" class="btn btn-default btn-circle">
+                                       {{element.player5}}
+                                     </button>
+                                   </div>
+                                   <div class="col-4 pt-5 ">
+                                     <button  type="submit" value="{{element.player6}}" class="btn btn-default btn-circle">
+                                       {{element.player6}}
+                                     </button>
+                                   </div>
+                                 </div>
+                                 <div class="row"> <!--each row----->
+                                    <div class="col-8 pl-5 pt-5">
+                                      <button  type="submit" value="{{element.player7}}" class="btn btn-default btn-circle">
+                                        {{element.player7}}
+                                      </button>
+                                    </div>
+                                    <div class="col-4 pl-3  pt-5 ">
+                                      <button  type="submit" value="{{element.player8}}" class="btn btn-default btn-circle">
+                                        {{element.player8}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="row"> <!--each row----->
+                                    <div class="col-8 p-5">
+                                      <button  type="submit" value="{{element.player9}}" class="btn btn-default btn-circle">
+                                        {{element.player9}}
+                                      </button>
+                                    </div>
+                                    <div class="col-4 pl-3 pt-5 ">
+                                      <button  type="submit" value="{{element.player10}}" class="btn btn-default btn-circle">
+                                        {{element.player10}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="row"> <!--each row----->
+                                    <div class="col-8 pl-5">
+                                      <button  type="submit" value="{{element.player11}}" class="btn btn-default btn-circle">
+                                        {{element.player11}}
+                                      </button>
+                                    </div>
+                                  </div>
+                                   {% endif %}
+                                 {% endfor %}
+                               </div>
+
+
+                            </div>
+                          
+                            <div class="center_line"></div>
+                            
+                        </div>
+                    </div>
+                    
+               
+                 
+                 
+                 
+                 <div class="col-lg-3">
+                  <div class="card" style="width: 20rem;">
+                      
+                      <div class="card-body">
+                        <h5 class="card-title">Football Simulator</h5>
+                        <p>(Player, Action, time)</p>
+                        <div id="demo" class="card-text"></div> 
+                        <div class="pt-3"></div>  
+                        </p>
+                      </div>
+                    </div>
+              </div>
+             </div>
+            </fieldset>
+         
+        </div>
+      </div>
+</div>
+
+{% endblock content %}
+
+<!--Scripts-->
+{% block javascripts %}
+<script src="/static/assets/js/football_view.js"></script>
+<script>
+//time interval function
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+//
+//1st player
+var playerID = document.getElementById("player1").value;
+var attack1 = document.getElementById("attack1").value;
+var defence1 = document.getElementById("defence1").value;
+var running1 = document.getElementById("running1").value;
+var passing1 = document.getElementById("passing1").value;
+var output = document.getElementById("demo");
+//output.innerHTML = attack1.value +'-'+ defence1.value+'-'+ defence1.value+'-'+ defence1.value;
+
+
+
+//Jquery
+jQuery(document).ready(function () {
+//time interval
+var fiveMinutes = 60 * 5,
+        display = $('#time');
+    startTimer(fiveMinutes, display);  
+
+
+
+  
+
+  
+
+  //insert data into tmp
+  var tmp = [5];
+
+  tmp[0]=playerID; // player 1
+  tmp[1]= attack1; //performance
+  tmp[2]= defence1; //time
+  tmp[3]= running1;
+  tmp[4]= passing1;
+
+
+
+  // Ajax call every 5 seconds 
+  $(document).ready(function(){
+    //setTimeout(fetchdata,10000);
+  });
+
+  function fetchdata(){
+    $.ajax({
+      type: 'POST',
+      url: "{% url 'football_view' %}",
+      data: {'tmp': tmp,'matchId': 2},
+      dataType: 'json',
+      success: function (response) {
+                    console.log(response);
+                    if (response.status == 200){
+                        var text = tmp.join('>'); 
+                        document.getElementById("demo").innerHTML = text;
+                    }else{
+                        document.getElementById("demo").innerHTML = tmp;
+                        //$("#submit").show();
+                    }
+                },
+                error: function (response) {
+                    // alert the error if any error occured
+                   alert(response.error);
+                },
+      complete:function(data){
+        setTimeout(fetchdata,5000);
+      }
+    });
+  }
+
+
+
+
+
+
+});
+
+     
+</script>
+{% endblock javascripts %}
+
+
+
+
+</body>
+</html>
+

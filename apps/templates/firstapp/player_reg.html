@@ -1,0 +1,148 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Player Data Form</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+       <!--------Include Navbar-------->
+       {% include "navbar.html" %}
+
+       <!--------Form-------->
+	      <div class="row">
+		        		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" action = "" method = "POST">
+            {% csrf_token %}
+            <fieldset>
+
+            <!-- Form Name -->
+            <legend>{{name}}</legend>
+            <!--  Name -->
+            <div class="form-group" >
+                <label class="col-md-3 control-label" for="textinput">First Name: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="fName" type="text" placeholder="first name" class="form-control input-md" required>
+                </div>
+                <label class="col-md-3 control-label" for="textinput">Last Name: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="lName" type="text" placeholder="last name" class="form-control input-md" required>
+                </div>            
+                
+            </div>
+            <!--   -->
+            <div class="form-group">
+                 <!-- DOB  -->
+                <label class="col-md-3 control-label" for="textinput">Date of Birth: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="birthDate" type="date" placeholder="placeholder" class="form-control input-md" required>
+                </div>
+                <!-- Age  -->
+                <label class="col-md-3 control-label" for="textinput">Age group: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="ageGroup" type="number" placeholder="age" class="form-control input-md" required>
+                </div>            
+                
+            </div>  
+            <!-- Gender -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="gender">Gender</label>
+                <div class="col-md-3"> 
+                    <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="gender" id="radios-0" value="1" checked="checked">
+                    Male
+                    </label> 
+                    <label class="radio-inline" for="radios-1">
+                    <input type="radio" name="gender" id="radios-1" value="2">
+                    Female
+                    </label> 
+                </div>
+            </div>
+           
+            <!-- Address -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Address</label>
+                <div class="col-md-9">                     
+                    <textarea class="form-control" id="" name="playerAddress" placeholder="address.." required></textarea>
+                </div>
+                </div>
+            <!--   -->
+            <div class="form-group">
+                <!-- City  -->
+                <label class="col-md-3 control-label" for="textinput">City: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="city" type="text" placeholder="city" class="form-control input-md" required>
+                </div>
+                <!-- Province  -->
+                <label class="col-md-3 control-label" for="textinput">Province: </label>  
+                <div class="col-md-3">
+                    <input id="textinput" name="province" type="text" placeholder="province" class="form-control input-md" required>
+                </div>            
+                
+            </div>
+            <!-- post code -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">ZIP/Post Code</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="postCode" type="text" placeholder="Post Code" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Parent's Name -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Parent's Name</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="parentName" type="text" placeholder="name" class="form-control input-md" required>
+                </div>
+              </div>
+            <!--Parent's Mobile No. -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Parent's Mobile No.</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="parentPhoneNo" type="text" placeholder="phone number" class="form-control input-md" required>
+                </div>
+              </div>
+            <!-- Place of Work -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Place of Work</label>
+                <div class="col-md-9">
+                  <input id="textinput" name="ParentWorkPlace" type="text" placeholder="place of work." class="form-control input-md" required>
+                </div>
+              </div>
+            
+            <!-- School Type-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textinput">Size</label>
+                <div class="col-md-9">
+                  <select id="textinput" name="schoolType" class="form-control" required>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                  </select>
+                </div>
+              </div>
+            
+              
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+            <label class="col-md-3 control-label" for="button1id"></label>
+            <div class="col-md-8">
+              <button type="submit" id="submit" name="submit" class="btn btn-success">Submit</button>
+              <button type="submit" id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+            </div>
+            </div>
+
+</fieldset>
+</form>
+		</div>
+		
+	</div>
+</div>
+
+    </body>
+</html>

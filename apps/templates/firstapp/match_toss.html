@@ -1,0 +1,149 @@
+
+<head>
+    <title>Match Toss Formation</title>
+</head>
+
+{% extends "layouts/base.html" %}
+{% block title %} UI Avatars {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+<body>
+{% block content %}
+    <div class="container">
+      
+       <div class="row ">
+
+	    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8  column col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+          <form class="form-horizontal" method="POST" action="">
+              {% csrf_token %}
+            <fieldset>
+
+            <div class="card" style="width: 50rem;">
+              <div class="card-header">
+                  <legend>Match Toss</legend>
+              </div>
+              <div class="card-body">
+                  <div id="formShow">
+                      <div class="form-group">
+                        <label class="col-md-8 control-label" for="textinput">Match ID </label>
+                        <div class="col-md-8">
+                            <input id="matchID" name="matchID" type="text" placeholder="Match ID" class="form-control input-md" required>
+                        </div>
+                      </div>
+                      <div class="form-group" id="showDiv">
+                        <label class="col-md-8 control-label" for="textinput">Toss Winner</label>
+                        <div class="col-md-8">
+                            <select id="toss" name="toss"  class="form-control input-md" required>
+                            </select>
+                        </div>
+                          <br>
+                        <label class="col-md-8 control-label" for="textinput">Batting</label>
+                        <div class="col-md-8">
+                            <select id="batting" name="batting"  class="form-control input-md" required>
+                            </select>
+                        </div>  
+                        <br>
+                        <label class="col-md-8 control-label" for="textinput">Bowling</label>
+                        <div class="col-md-8">
+                            <select id="bowling" name="bowling"  class="form-control input-md" required>
+                            </select>
+                        </div>  
+                        <br>
+                        <label class="col-md-8 control-label" for="textinput">Over</label>
+                        <div class="col-md-8">
+                            <input id="over" name="over" type="text" placeholder="Over" class="form-control input-md" required>
+                        </div>
+                      </div>
+                      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                  <div class="form-group" id="resultShow" style="display: none">
+
+                      <a id="link" href="{% url 'match_view' %}">
+                        <button type="button" id="view" class="btn btn-primary">View</button>
+                      </a>
+                  </div>
+              </div>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+</div>
+{% endblock content %}
+
+<!--Java Script -->
+{% block javascripts %}
+<!--
+<script src="/static/assets/js/match_toss.js"></script>
+-->
+<script>
+  $(document).ready(function () {
+    $('#showDiv').hide();
+    $(document).on('click', "#submit", function (e) {
+        e.preventDefault()
+        let matchId = $('#matchID').val();
+        let toss = $('#toss').val();
+        let batting = $('#batting').val();
+        let bowling = $('#bowling').val();
+        let over = $('#over').val();
+        
+        if(matchId && toss && over){
+            alert(batting);
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'match_toss' %}",
+                data: {'matchId': matchId,'toss': toss, 'batting':batting,'bowling': bowling,'over': over, 'flag': 1},
+                dataType: 'json',
+                success: function (response) {
+                      console.log(response);
+                      optionsAsString = "";
+                      if(response.status=200){
+                        lab = '<label class="col-md-8 control-label" for="textinput">' + response.toss + ' Won The Toss For '+ response.over +' over Match. '+
+                        '<br>'+ 'batting first: '+ response.batting + '<br>'+ 'bowling first: '+ response.bowling +'<br>'+ 'Click View to See Match Score.' +'</label>'
+                        $('#formShow').hide();
+                        $( '#link' ).before(lab);
+                        $('#resultShow').show();
+                      }
+                },
+                error: function (response) {
+                    // alert the error if any error
+                    alert(response.error);
+                }
+            });
+        }else if(matchId){
+            console.log(matchId);
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'match_toss' %}",
+                data: {'matchId': matchId, 'flag': 0},
+                dataType: 'json',
+                success: function (response) {
+                      console.log(response);
+                      optionsAsString = "";
+                      if(response.status=200){
+                        optionsAsString += "<option value='" + response.team1 + "'>" + response.team1 + "</option>";
+                        optionsAsString += "<option value='" + response.team2 + "'>" + response.team2 + "</option>";
+                        $( '#toss' ).append( optionsAsString );
+                        $( '#batting' ).append( optionsAsString );
+                        $( '#bowling' ).append( optionsAsString );
+                        $('#showDiv').show();
+                      }
+                },
+                error: function (response) {
+                    // alert the error if any error
+                    alert(response.error);
+                }
+            });
+        }
+    })
+});
+</script>
+
+{% endblock javascripts %}
+
+
+</body>
+</html>
+
+
